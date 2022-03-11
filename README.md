@@ -1,1 +1,1 @@
-# posterize-pg-rest
+# posterize
