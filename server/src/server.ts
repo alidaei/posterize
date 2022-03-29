@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 
 import { connectDB } from './config/db';
 import { goalsRouter } from './routes/goals';
+import { usersRouter } from './routes/users';
 import { errorHandler } from './middlewares/error';
 
 dotenv.config();
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // routes
 app.use('/api/goals', goalsRouter);
+app.use('/api/users', usersRouter);
 
 app.use(errorHandler);
 
