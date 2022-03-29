@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
+import { connectDB } from './config/db';
 import { goalsRouter } from './routes/goals';
 import { errorHandler } from './middlewares/error';
 
@@ -8,6 +9,10 @@ dotenv.config();
 
 const port = process.env.PORT || 5000;
 
+// connecting to database
+connectDB();
+
+// creating the express app
 const app = express();
 
 // middlewares
