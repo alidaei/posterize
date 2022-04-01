@@ -75,8 +75,9 @@ const loginUser = asyncHandler(async (request: Request, response: Response) => {
 // @desc      get user data
 // @route     GET /api/users/me
 // @access    private
-const getMe = asyncHandler(async (request: Request, response: Response) => {
-  response.status(200).json({ message: 'display the logged in user data' });
+const getMe = asyncHandler(async (request: any, response: Response) => {
+  const { _id, username, email } = await userModel.findById(request.user.id);
+  response.status(200).json({ id: _id, username, email });
 });
 
 // generating jwt token
